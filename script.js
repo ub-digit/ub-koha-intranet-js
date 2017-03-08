@@ -22,13 +22,13 @@
         'KohaBiblio (999$c)'
       );
 
-      // Also hide elements where defaults should not be changed
       $('#to_marc_plugin').val('Koha::Plugin::Se::Ub::Gu::MarcImport');
       $('#overlay_action').val('replace');
       $('#nomatch_action').val('create_new');
       $('#parse_itemsyes').attr('checked', 'checked');; //Deselect #parseitemsno?
       $('#item_action').val('always_add');
 
+      // Hide elements where defaults should not be changed
       var hidden_elements = [];
       hidden_elements.push($('#marc_modification_template_id').closest('fieldset').get(0));
       hidden_elements.push($('#to_marc_plugin').closest('fieldset').get(0));
@@ -38,6 +38,12 @@
     }
     // Detect manage marc import page
     else if($('#tools_manage-marc-import').length) {
+      // Set "Show all entities" as default
+      // Possible race condition? Seems to work but does not feel
+      // very robust
+      dataTablesDefaults.iDisplayLength = -1;
+
+      // Hide elements where defaults should not be changed
       var hidden_elements = [];
       hidden_elements.push($('#new_matcher_id').closest('li').get(0));
       hidden_elements.push($('#overlay_action').closest('li').get(0));
