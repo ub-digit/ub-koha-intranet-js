@@ -36,5 +36,15 @@
       hidden_elements.push($('#parse_itemsyes').closest('fieldset').get(0));
       $(hidden_elements).hide();
     }
+    // Detect manage marc import page
+    else if($('#tools_manage-marc-import').length) {
+      var hidden_elements = [];
+      hidden_elements.push($('#new_matcher_id').closest('li').get(0));
+      hidden_elements.push($('#overlay_action').closest('li').get(0));
+      hidden_elements.push($('#nomatch_action').closest('li').get(0));
+      hidden_elements.push($('#item_action').closest('li').get(0));
+      hidden_elements.push($('#staged-record-matching-rules .action').get(0));
+      $(hidden_elements).hide();
+    }
   });
 })(jQuery);
