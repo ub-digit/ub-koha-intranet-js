@@ -44,13 +44,15 @@
       dataTablesDefaults.iDisplayLength = -1;
 
       // Hide elements where defaults should not be changed
-      var hidden_elements = [];
-      hidden_elements.push($('#new_matcher_id').closest('li').get(0));
-      hidden_elements.push($('#overlay_action').closest('li').get(0));
-      hidden_elements.push($('#nomatch_action').closest('li').get(0));
-      hidden_elements.push($('#item_action').closest('li').get(0));
-      hidden_elements.push($('#staged-record-matching-rules .action').get(0));
-      $(hidden_elements).hide();
+      if($('#new_matcher_id').length) {
+        var hidden_elements = [];
+        hidden_elements.push($('#new_matcher_id').closest('li').get(0));
+        hidden_elements.push($('#overlay_action').closest('li').get(0));
+        hidden_elements.push($('#nomatch_action').closest('li').get(0));
+        hidden_elements.push($('#item_action').closest('li').get(0));
+        hidden_elements.push($('#staged-record-matching-rules .action').get(0));
+        $(hidden_elements).hide();
+      }
     }
   });
 })(jQuery);
